@@ -103,11 +103,11 @@ class ManageProducts extends React.Component {
                 <div className='container-fluid'>
                     <div className='row'>
 
-                        <div className='col-md-3'>
+                        <div className='col-md-2'>
                             <Sidebar />
                         </div>
 
-                        <div className='col-md-9 bg-light'>
+                        <div className='col-md-10 bg-light'>
 
                             <div className='float-left'>
 
@@ -140,7 +140,7 @@ class ManageProducts extends React.Component {
                                                 </div>
                                                 <h5 style={{fontSize: 15}} className='ml-5'>Satış Tutarı : <b style={{fontSize: 15}}>{order.real_price}</b> TL </h5>
 
-                                                <h5 style={{fontSize: 15}} className='ml-5'>Satış Tarihi : <b style={{fontSize: 15}}>
+                                                <h5 style={{fontSize: 15}} className='ml-5'><b style={{fontSize: 15, color: 'gray'}}>
                                                 {(() =>  {
                                                     let date = new Date(order.order_created_date);
                                                     let options1 = {  
@@ -157,6 +157,10 @@ class ManageProducts extends React.Component {
                                                     
                                                   })()}
                                                 </b></h5>
+
+                                                <h5 style={{fontSize: 15}} className='ml-5'>Satış Yeri: <b style={{color: 'green'}}> {order.sales_type.toLocaleUpperCase('tr-TR')}</b></h5>
+                                                <h5 style={{fontSize: 15}} className='ml-5'>Ödeme Methodu:<b style={{color: 'green'}}> {order.payment_method.toLocaleUpperCase('tr-TR')}</b></h5>
+                                                
 
 
                                             </button>

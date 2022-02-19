@@ -91,6 +91,7 @@ class AddProduct extends React.Component {
         newProduct.stock_quantity = Number(newProduct.stock_quantity);
 
         newProduct.price = Number(newProduct.price);
+        newProduct.entry_price = Number(newProduct.entry_price);
 
         newProduct.category = this.state.category;
         newProduct.status = true;
@@ -166,9 +167,14 @@ class AddProduct extends React.Component {
                                     <textarea className="form-control" aria-label="With textarea"></textarea>
                                 </div>
 
+                                <div className="input-group mb-3">
+                                    <span className="input-group-text">Alış Fiyat: ₺ </span>
+                                    <input type="number" name="entry_price" className="form-control" aria-label="Amount (to the nearest dollar)" required />
+                                    <span className="input-group-text">.00</span>
+                                </div>
 
                                 <div className="input-group mb-3">
-                                    <span className="input-group-text">Fiyat: ₺ </span>
+                                    <span className="input-group-text">Satış Fiyat: ₺ </span>
                                     <input type="number" name="price" className="form-control" aria-label="Amount (to the nearest dollar)" required />
                                     <span className="input-group-text">.00</span>
                                 </div>
@@ -184,6 +190,12 @@ class AddProduct extends React.Component {
                                 <div className="input-group mb-3">
                                     <span className="input-group-text">Barkod : </span>
                                     <input type="text" name="barcode" className="form-control" required />
+
+                                </div>
+
+                                <div className="input-group mb-3">
+                                    <span className="input-group-text">Tedarikçi : </span>
+                                    <input type="text" name="tedarikci" className="form-control" required />
 
                                 </div>
 

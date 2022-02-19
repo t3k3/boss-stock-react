@@ -99,11 +99,11 @@ class ManageProducts extends React.Component {
         <div className='container-fluid'>
           <div className='row'>
 
-            <div className='col-md-3'>
+            <div className='col-md-2'>
               <Sidebar />
             </div>
 
-            <div className='col-md-9 bg-light'>
+            <div className='col-md-10 bg-light'>
 
               <div className='float-left'>
 
@@ -125,7 +125,9 @@ class ManageProducts extends React.Component {
                     <th scope="col">Fiyat</th>
                     <th scope="col">Stok</th>
                     <th scope="col">Kategori</th>
-                    <th scope="col">Düzenle</th>
+                    <th scope="col">Tedarikçi</th>
+                    <th scope="col">Alış Tarihi</th>
+                    <th scope="col">İşlem</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -135,13 +137,33 @@ class ManageProducts extends React.Component {
 
                   {filteredProduct.map((product) => (
                     <tr key={product._id}>
-                      <td><img width={50} alt="iphone" src='https://img.letgo.com/images/3c/23/ed/1c/3c23ed1c2229cfd4cc9d3641eaa3872f.jpg?impolicy=img_256'></img></td>
+                      <td><img width={50} alt="iphone" src={product.imageURL}></img></td>
                       <th scope="row" >{product.barcode}</th>
                       <td>{product.name}</td>
                       <td>{product.price}</td>
-                      <td>{product.stock_quantity}</td>
-                      <td>{product.category}</td>
-                      <td>Düzenle</td>
+                      <td style={product.stock_quantity < 1 ? {color: 'red'}:{color: 'green'}}>{product.stock_quantity}</td>
+
+                      <td><button className="btn btn-outline-primary btn-sm mr-1" data-toggle="pill" disabled>
+                      <i className="fa fa-tags"></i> {product.category.toLocaleUpperCase('tr-TR')}</button></td>
+                      
+
+
+
+                      <td>{product.tedarikci}</td>
+                      <td><b style={{ fontSize: 15, color: 'gray' }}>
+                        {(() => {
+                          let date = new Date(product.product_created_date);
+                          let options1 = {
+                            hour:"2-digit",
+                            minute:"2-digit",
+                            year: "numeric",
+                            month: "numeric",
+                            day: "numeric",
+                          }
+                          return date.toLocaleTimeString("tr-TR", options1);
+                        })()}
+                      </b></td>
+                      <td><button className='btn btn-info mr-1'>Düzenle</button><button className='btn btn-danger '>Sil</button></td>
                     </tr>
 
                   ))}
