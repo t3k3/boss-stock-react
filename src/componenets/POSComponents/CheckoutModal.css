@@ -1,0 +1,11 @@
+.customOverlay {
+    background: rgba(25, 32, 36, 0.7);
+
+  }
+  .customModal {
+
+    background: rgba(215, 215, 215, 0.8);
+    max-width: 800px;
+    max-height: 800px;
+    width: 100%;
+  }

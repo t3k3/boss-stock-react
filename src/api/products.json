@@ -1,0 +1,81 @@
+{
+    "products": [
+      {
+          "id": 1,
+          "name": "iPhone 12",
+          "slug": "iphone 12",
+          "price": 12999,
+          "stockQty": 5,
+          "cartQuantity": 0,
+          "barcode": 101,
+          "category": "telefon",
+          "imageURL": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-purple-select-2021?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1617130317000.jpg"
+      },
+      {
+          "id": 2,
+          "name": "iPhone 13 Pro",
+          "slug": "iphone 13 pro",
+          "price": 16999,
+          "stockQty": 3,
+          "cartQuantity": 0,
+          "barcode": 102,
+          "category": "telefon",
+          "imageURL": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-pro-max-graphite-select?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1631652956000.jpg"
+      },
+      {
+          "id": 3,
+          "name": "iPhone X",
+          "slug": "iphone x",
+          "price": 10999,
+          "stockQty": 4,
+          "cartQuantity": 0,
+          "barcode": 103,
+          "category": "aksesuar",
+          "imageURL": "https://cdn.cimri.io/pictures/article/original/23/23949.jpg"
+      },
+      {
+          "id": 4,
+          "name": "iPhone 6",
+          "slug": "iphone 6",
+          "price": 3999,
+          "stockQty": 12,
+          "cartQuantity": 0,
+          "barcode": 104,
+          "category": "aksesuar",
+          "imageURL": "https://cdn.cimri.io/pictures/article/original/23/23949.jpg"
+      },
+      {
+          "id": 5,
+          "name": "Samsung s7 Edge",
+          "slug": "samsung s7 edge",
+          "price": 4999,
+          "stockQty": 2,
+          "cartQuantity": 0,
+          "barcode": 105,
+          "category": "kılıf",
+          "imageURL": "https://cdn.cimri.io/pictures/article/original/23/23949.jpg"
+      },
+      {
+          "id": 6,
+          "name": "Sony Xperia z5",
+          "slug": "sony xperia z5",
+          "price": 2999,
+          "stockQty": 7,
+          "cartQuantity": 0,
+          "barcode": 106,
+          "category": "kulaklık",
+          "imageURL": "https://cdn.cimri.io/pictures/article/original/23/23949.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Sony Xperia z5",
+        "slug": "sony xperia z5",
+        "price": 2999,
+        "stockQty": 7,
+        "cartQuantity": 0,
+        "barcode": 106,
+        "category": "kulaklık",
+        "imageURL": "https://cdn.cimri.io/pictures/article/original/23/23949.jpg"
+    }
+  ]
+  }
