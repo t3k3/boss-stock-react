@@ -364,10 +364,20 @@ class PointOfSale extends React.Component {
                                 </span>
                             </div>
 
-                            <div className="col-md-12">
-                                <span className="input-group-text">İndirimli Toplam Satış Fiyatı: ₺ </span>
-                                <input onChange={this.realPriceFunc} type="number" className="form-control" aria-label="Amount (to the nearest dollar)" placeholder={this.state.cartToplam} />
-                                <span className="input-group-text">.00</span>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-6 p-0">
+                                        <span className="input-group-text">İndirimli Toplam Satış Fiyatı: ₺ </span>
+                                    </div>
+                                    <div className="col-5 p-0">
+                                        <input onChange={this.realPriceFunc} type="number" className="form-control " placeholder={this.state.cartToplam} />
+                                    </div>
+                                    <div className="col-1 p-0">
+                                        <span className="input-group-text">.00</span>
+                                    </div>
+
+
+                                </div>
                             </div>
 
                             <div className="box">
