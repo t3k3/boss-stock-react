@@ -128,8 +128,10 @@ class ManageProducts extends React.Component {
 
                                         <h2 className="accordion-header" id="flush-headingOne">
                                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#a" + order._id} aria-expanded="false" aria-controls={"a" + order._id}>
+                                            <div>
 
                                                 {order._id}
+                                            </div>
 
                                                 <div className='ml-5'>
 

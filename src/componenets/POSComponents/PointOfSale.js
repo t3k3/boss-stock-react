@@ -426,7 +426,11 @@ class PointOfSale extends React.Component {
 
                                             <div className="col-md-2" key={product._id}>
                                                 <figure className="card card-product" style={{ minHeight: 250 }}>
-                                                    <span className="badge-new"> YENİ </span>
+
+                                                    {
+                                                        //<span className="badge-new"> YENİ </span>
+                                                    }
+
                                                     <div className="img-wrap" style={{ maxHeight: 100 }} >
                                                         <img src={product.imageURL} alt="iphone-12" />
                                                         <a className="btn-overlay" href="# "><i className="fa fa-search-plus"></i> Detay</a>
@@ -435,10 +439,15 @@ class PointOfSale extends React.Component {
                                                         <a href="# " className="title">{product.name} </a>
                                                         <span className="badge bg-info" style={{ float: 'right' }}>Stok {product.stock_quantity}</span>
                                                         <div className="action-wrap">
-                                                            <button onClick={(event) => this.addItemToCart(product)} className="btn btn-primary btn-sm float-right" type="button"><i className="fa fa-cart-plus"></i> Ekle</button>
-                                                            <b style={{ fontSize: 10 }}>barcode: {product.barcode}</b>
+                                                            <b style={{ fontSize: 10 }}>Barcode: {product.barcode}</b>
+                                                            <div className="row">
+
                                                             <div className="price-wrap h5">
-                                                                <span className="price-new">{product.price}</span>
+                                                                <span style={{color: 'green'}} className="price-new float-right">₺{product.price}</span>
+                                                            </div>
+
+                                                            <button onClick={(event) => this.addItemToCart(product)} className="btn btn-outline-primary btn-sm float-right" type="button"><i className="fa fa-cart-plus"></i> Ekle</button>
+                                                            
                                                             </div>
                                                         </div>
                                                     </figcaption>
