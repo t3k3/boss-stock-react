@@ -53,7 +53,7 @@ class ManageProducts extends React.Component {
     }
 
   async componentDidMount() {
-    const response = await axios.get("http://localhost:3001/api/products?limit=100");
+    const response = await axios.get("http://45.12.54.52:3001/api/products?limit=100");
     //console.log(response.data.data)
     this.setState({ products: response.data.data })
   }
