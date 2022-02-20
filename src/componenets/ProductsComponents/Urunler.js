@@ -75,7 +75,7 @@ class ManageProducts extends React.Component {
 
     let filteredProduct = this.state.products.filter(
       (product) => {
-        //console.log("Toplam Ürün Sayısı : " + this.state.products.length);
+        console.log("Toplam Ürün Sayısı : " + this.state.products.length);
         return ((product.slug.indexOf(this.state.searchQuery) !== -1) || (product.barcode.indexOf(this.state.searchQuery) !== -1)) && (product.category.indexOf(this.state.category) !== -1)
       }
     )
@@ -134,8 +134,12 @@ class ManageProducts extends React.Component {
 
 
 
-
                   {filteredProduct.map((product) => (
+
+                    
+
+
+
                     <tr key={product._id}>
                       <td><img width={50} alt="iphone" src={product.imageURL}></img></td>
                       <th scope="row" >{product.barcode}</th>

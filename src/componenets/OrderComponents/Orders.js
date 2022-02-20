@@ -71,7 +71,24 @@ class ManageProducts extends React.Component {
         event.preventDefault();
     }
 
-    
+    deleteOrder(order_products, order_id) {
+        order_products.map((order_product) => (
+            //Ürünün gerçek stoğu için serverdan bilgi alıyor.
+            axios.get("http://45.12.54.52:3001/api/products/" + order_product._id).then(function (response) {
+                //Ürünün mevcut stoğuna satış adedini ekliyor
+                const data = { "stock_quantity": response.data.data.stock_quantity + order_product.cartQuantity }
+                //çıkan sonucu ilgili ürünün stoğuyla update ediyor.
+                axios.put("http://45.12.54.52:3001/api/products/" + order_product._id, data);
+
+            })
+        ))
+        //Siparişi db'den siliyor. Hard Delete
+        const deleteorder = axios.delete("http://45.12.54.52:3001/api/orders/" + order_id);
+        console.log(deleteorder);
+        this.componentDidMount();
+    }
+
+
 
     render() {
 
@@ -81,7 +98,7 @@ class ManageProducts extends React.Component {
                 return ((order._id.indexOf(this.state.searchQuery) !== -1) || (order.barcode.indexOf(this.state.searchQuery) !== -1))
             }
         )
-        
+
 
 
         return (
@@ -128,10 +145,11 @@ class ManageProducts extends React.Component {
 
                                         <h2 className="accordion-header" id="flush-headingOne">
                                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#a" + order._id} aria-expanded="false" aria-controls={"a" + order._id}>
-                                            <div>
+                                                <div>
 
-                                                {order._id}
-                                            </div>
+                                                    {order._id}
+                                                </div>
+
 
                                                 <div className='ml-5'>
 
@@ -140,29 +158,30 @@ class ManageProducts extends React.Component {
 
                                                     ))}
                                                 </div>
-                                                <h5 style={{fontSize: 15}} className='ml-5'>Satış Tutarı : <b style={{fontSize: 15}}>{order.real_price}</b> TL </h5>
 
-                                                <h5 style={{fontSize: 15}} className='ml-5'><b style={{fontSize: 15, color: 'gray'}}>
-                                                {(() =>  {
-                                                    let date = new Date(order.order_created_date);
-                                                    let options1 = {  
-                                                        hour: "2-digit",
-                                                        minute: "2-digit",
-                                                        year: "numeric",
-                                                        month: "numeric",  
-                                                        day: "numeric",
-                                                          
-                                                    }
-                                                    
-                                                    return date.toLocaleTimeString("tr-TR", options1);
+                                                <h5 style={{ fontSize: 15 }} className='ml-5'>Satış Tutarı : <b style={{ fontSize: 15 }}>{order.real_price}</b> TL </h5>
 
-                                                    
-                                                  })()}
+                                                <h5 style={{ fontSize: 15 }} className='ml-5'><b style={{ fontSize: 15, color: 'gray' }}>
+                                                    {(() => {
+                                                        let date = new Date(order.order_created_date);
+                                                        let options1 = {
+                                                            hour: "2-digit",
+                                                            minute: "2-digit",
+                                                            year: "numeric",
+                                                            month: "numeric",
+                                                            day: "numeric",
+
+                                                        }
+
+                                                        return date.toLocaleTimeString("tr-TR", options1);
+
+
+                                                    })()}
                                                 </b></h5>
 
-                                                <h5 style={{fontSize: 15}} className='ml-5'>Satış Yeri: <b style={{color: 'green'}}> {order.sales_type.toLocaleUpperCase('tr-TR')}</b></h5>
-                                                <h5 style={{fontSize: 15}} className='ml-5'>Ödeme Methodu:<b style={{color: 'green'}}> {order.payment_method.toLocaleUpperCase('tr-TR')}</b></h5>
-                                                
+                                                <h5 style={{ fontSize: 15 }} className='ml-5'>Satış Yeri: <b style={{ color: 'green' }}> {order.sales_type.toLocaleUpperCase('tr-TR')}</b></h5>
+                                                <h5 style={{ fontSize: 15 }} className='ml-5'>Ödeme Methodu:<b style={{ color: 'green' }}> {order.payment_method.toLocaleUpperCase('tr-TR')}</b></h5>
+
 
 
                                             </button>
@@ -210,7 +229,7 @@ class ManageProducts extends React.Component {
                                                         <h1 style={{ fontSize: 15 }}>Sipariş Numarası : <b>{order._id}</b></h1>
                                                     </div>
                                                     <div className='col'>
-                                                        <button className='btn btn-danger float-right'>İPTAL ET</button>
+                                                        <button onClick={(event) => this.deleteOrder(order.order_products, order._id)} className='btn btn-danger float-right'>İPTAL ET</button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -259,7 +259,7 @@ class PointOfSale extends React.Component {
         //Aynı zamanda kategori seçildiğinde ürünleri filtreler
         let filteredProduct = this.state.products.filter(
             (product) => {
-                //console.log("Toplam Ürün Sayısı : " + this.state.products.length);
+                console.log("Toplam Ürün Sayısı : " + this.state.products.length);
                 return (product.slug.indexOf(this.state.searchQuery) !== -1) && (product.category.indexOf(this.state.category) !== -1)
             }
         )
