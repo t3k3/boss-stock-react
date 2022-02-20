@@ -244,7 +244,7 @@ class PointOfSale extends React.Component {
         console.log(response.data.success)
         if (response.data.success) {
             alert("Başarılı")
-            //window.location.reload(true)
+            window.location.reload(true)
         }
         else {
             alert("Satış yapılamadı!" + response.data.message)
