@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
 
-    test
+    
       <Nav />
       <Sidebar />
 
