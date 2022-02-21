@@ -70,10 +70,18 @@ class PointOfSale extends React.Component {
         }
 
     async componentDidMount() {
+        //this.setState({ products: []})
+    
         const response = await axios.get("http://45.12.54.52:3001/api/products?limit=1000");
         //console.log(response.data.data)
         this.setState({ products: response.data.data })
+        this.setState({ cartItems: []})
+        this.setState({ cartToplam: 0})
+        this.setState({ realPrice: 0})
     }
+
+   
+
 
     //Barcod için yapılan yer. Eğer sayılar girildikten sonra enter'a basılırsa eşleşen ürünü direkt olarak sepete ekler. 
     _handleKeyDownProp = (e) => {
@@ -559,7 +567,7 @@ class PointOfSale extends React.Component {
                                         <div className="row">
                                             <div className="col-md-6">
 
-                                                <button onClick={() => window.location.reload(true)} type="button" className="btn btn-outline-danger btn-error btn-lg btn-block"><i className="fa fa-times-circle "></i> Temizle </button>
+                                                <button onClick={() => this.componentDidMount()} type="button" className="btn btn-outline-danger btn-error btn-lg btn-block" disabled={this.state.cartItems.length > 0 ? false : true}><i className="fa fa-times-circle "></i> Temizle </button>
 
                                             </div>
                                             <div className="col-md-6">
