@@ -11,8 +11,10 @@ class AddProduct extends React.Component {
     constructor() {
         super();
         this.state = {
-            selectedFile: '',
+            selectedFile: [],
+
             imageURL: "",
+            
             categories: [
 
                 {
@@ -44,6 +46,7 @@ class AddProduct extends React.Component {
                     "slug": "kılıf"
                 },
             ],
+            
             category: "",
         }
 
@@ -52,21 +55,27 @@ class AddProduct extends React.Component {
 
     handleInputChange(event) {
         if (event.target.files[0].type !== "image/jpeg") {
-            console.log(event.target.files[0].type)
-            alert("olmaaaaz jpg yüklee")
+            console.log(event.target.files)
+            alert("Yalnızca JPG yükleyebilirsiniz.")
             return
         }
 
-        this.setState({
-            selectedFile: event.target.files[0],
-        })
+        const data = new FormData()
+        data.append('file', event.target.files[0])
+
+        if (event.target.files[0] !== null) {
+            this.submit(data);
+            
+        }else {
+            
+            throw new Error("Dosyayı kontrol edin.");
+        }
     }
 
-    submit() {
-        const data = new FormData()
-        data.append('file', this.state.selectedFile)
-        let url = "http://45.12.54.52:3001/api/upload";
+    submit(data) {
 
+        let url = "http://localhost:3001/api/upload";
+        
         axios.post(url, data, { // receive two parameter endpoint url ,form data 
         })
             .then(res => { // then print response status
@@ -146,8 +155,9 @@ class AddProduct extends React.Component {
                             <div className="form-row">
                                 <div className="form-group col-mb-3">
                                     <label className="text-white">Dosya Seç :</label>
-                                    <input type="file" className="form-control" name="upload_file" onChange={this.handleInputChange} />
-                                    <button type="submit" className="btn btn-info" onClick={() => this.submit()}>Yükle</button>
+                                    <input type="file" accept="image/jpeg" className="form-control" name="upload_file" 
+                                    onChange = {this.handleInputChange} />
+                                    <img src={this.state.imageURL} alt="resim"></img>
                                 </div>
                             </div>
                             {/** IMAGE UPLOAD END */}
