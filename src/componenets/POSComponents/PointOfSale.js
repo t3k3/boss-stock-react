@@ -72,7 +72,7 @@ class PointOfSale extends React.Component {
     async componentDidMount() {
         //this.setState({ products: []})
     
-        const response = await axios.get("http://45.12.54.52:3001/api/products?limit=1000");
+        const response = await axios.get("http://localhost:3001/api/products?limit=1000");
         //console.log(response.data.data)
         this.setState({ products: response.data.data })
         this.setState({ cartItems: []})
@@ -249,7 +249,7 @@ class PointOfSale extends React.Component {
     }
 
     orderKaydet = async (product) => {
-        const response = await axios.post(`http://45.12.54.52:3001/api/orders`, product);
+        const response = await axios.post(`http://localhost:3001/api/orders`, product);
         console.log(response.data.success)
         if (response.data.success) {
             alert("Başarılı")

@@ -53,7 +53,7 @@ class ManageProducts extends React.Component {
         }
 
     async componentDidMount() {
-        const response = await axios.get("http://45.12.54.52:3001/api/orders?limit=100");
+        const response = await axios.get("http://localhost:3001/api/orders?limit=100");
         //console.log(response.data.data)
         this.setState({ orders: response.data.data })
     }
@@ -74,16 +74,16 @@ class ManageProducts extends React.Component {
     deleteOrder(order_products, order_id) {
         order_products.map((order_product) => (
             //Ürünün gerçek stoğu için serverdan bilgi alıyor.
-            axios.get("http://45.12.54.52:3001/api/products/" + order_product._id).then(function (response) {
+            axios.get("http://localhost:3001/api/products/" + order_product._id).then(function (response) {
                 //Ürünün mevcut stoğuna satış adedini ekliyor
                 const data = { "stock_quantity": response.data.data.stock_quantity + order_product.cartQuantity }
                 //çıkan sonucu ilgili ürünün stoğuyla update ediyor.
-                axios.put("http://45.12.54.52:3001/api/products/" + order_product._id, data);
+                axios.put("http://localhost:3001/api/products/" + order_product._id, data);
 
             })
         ))
         //Siparişi db'den siliyor. Hard Delete
-        const deleteorder = axios.delete("http://45.12.54.52:3001/api/orders/" + order_id);
+        const deleteorder = axios.delete("http://localhost:3001/api/orders/" + order_id);
         console.log(deleteorder);
         this.componentDidMount();
     }

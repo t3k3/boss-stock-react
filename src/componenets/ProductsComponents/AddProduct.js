@@ -74,7 +74,7 @@ class AddProduct extends React.Component {
 
     submit(data) {
 
-        let url = "http://45.12.54.52:3001/api/upload";
+        let url = "http://localhost:3001/api/upload";
         
         axios.post(url, data, { // receive two parameter endpoint url ,form data 
         })
@@ -117,7 +117,7 @@ class AddProduct extends React.Component {
     }
 
     urunEklePost = async (product) => {
-        const response = await axios.post(`http://45.12.54.52:3001/api/products`, product);
+        const response = await axios.post(`http://localhost:3001/api/products`, product);
         console.log(response.data.success)
         if (response.data.success) {
             alert("Başarılı")

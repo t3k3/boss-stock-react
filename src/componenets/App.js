@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import ManageProducts from "./ProductsComponents/Urunler";
 import AddProduct from "./ProductsComponents/AddProduct";
 import Orders from "./OrderComponents/Orders"
+import Login from "./AuthComponents/Login";
 
 
 
@@ -18,6 +19,8 @@ function App() {
         <Route path="Urunler" element={<ManageProducts/>} />
         <Route path="Urunler/yeni" element={<AddProduct/>} />
         <Route path="/Satislar" element={<Orders/>} />
+        <Route path="/Login" element={<Login/>} />
+
       </Routes>
       
     </div>
