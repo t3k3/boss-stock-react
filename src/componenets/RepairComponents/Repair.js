@@ -4,7 +4,7 @@ import Nav from '../POSComponents/Nav'
 
 
 
-const Home = () => {
+const Repair = () => {
   return (
     <>
 
@@ -16,4 +16,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Repair

@@ -40,6 +40,11 @@ const Sidebar = () => {
                                     SATIŞLAR
                                 </a>
                             </li>
+                            <li key={5} className="nav-item" >
+                                <a href="/tamir" className="nav-link " >
+                                    TAMİR
+                                </a>
+                            </li>
 
                         </ul>
                         <hr />
