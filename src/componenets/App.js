@@ -6,6 +6,7 @@ import AddProduct from "./ProductsComponents/AddProduct";
 import Orders from "./OrderComponents/Orders"
 import Login from "./AuthComponents/Login";
 import Repair from "./RepairComponents/Repair";
+import AddRepair from "./RepairComponents/AddRepair";
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/Satislar" element={<Orders/>} />
         <Route path="/Login" element={<Login/>} />
         <Route path="/Tamir" element={<Repair/>} />
+        <Route path="/Tamir/yeni" element={<AddRepair/>} />
 
       </Routes>
       
