@@ -91,36 +91,12 @@ class AddRepair extends React.Component {
         e.preventDefault();
         
         const newProduct = serialize(e.target, { hash: true });
-        newProduct.ID = String(newProduct.ID);
-        newProduct.name = String(newProduct.Name);
 
-        newProduct.tel = String(newProduct.Tel);
 
-        newProduct.problem = String(newProduct.Problem);
+        newProduct.estimated_price = Number(newProduct.estimated_price);
 
-        newProduct.status = String(newProduct.Status);
-
-        newProduct.notes = String(newProduct.Notes);
-
-        newProduct.estimeted_price = Number(newProduct.Estimeted_price);
-
-        newProduct.brand = String(newProduct.Brand);
-
-        newProduct.device_model = String(newProduct.Device_model);
-
-        newProduct.color = String(newProduct.Color);
-
-        newProduct.diagnosis = String(newProduct.Diagnosis);
 
         //newProduct.Sms = Boolean(newProduct.Sms);
-        
-
-
-
-        
-
-        
-        newProduct.slug = newProduct.name.toLocaleLowerCase('tr-TR');
 
         console.log(newProduct);
 
@@ -182,33 +158,33 @@ class AddRepair extends React.Component {
 
                                 <div className="input-group mb-3">
                                     <span className="input-group-text">Telefon</span>
-                                    <input type="text" name="entry_price" className="form-control" aria-label="Amount (to the nearest dollar)" required />
+                                    <input type="text" name="tel" className="form-control" aria-label="Amount (to the nearest dollar)" required />
                                     <span className="input-group-text"></span>
                                 </div>
 
                                 <div className="input-group mb-3">
                                     <span className="input-group-text">Arıza</span>
-                                    <input type="text" name="price" className="form-control" aria-label="Amount (to the nearest dollar)" required />
+                                    <input type="text" name="problem" className="form-control" aria-label="Amount (to the nearest dollar)" required />
                                     <span className="input-group-text"></span>
                                 </div>
 
 
                                 <div className="input-group mb-3">
                                     <span className="input-group-text">Durum </span>
-                                    <input type="text" name="stock_quantity" className="form-control" required />
+                                    <input type="text" name="status" className="form-control" required />
 
                                 </div>
 
 
                                 <div className="input-group mb-3">
                                     <span className="input-group-text">Not </span>
-                                    <input type="text" name="text" className="form-control" required />
+                                    <input type="text" name="notes" className="form-control" required />
 
                                 </div>
 
                                 <div className="input-group mb-3">
                                     <span className="input-group-text">Ortalama Fiyat </span>
-                                    <input type="number" name="AlısTarihi" className="form-control" required />
+                                    <input type="number" name="estimated_price" className="form-control" required />
 
                                 </div>
 
@@ -232,7 +208,7 @@ class AddRepair extends React.Component {
 
                                 <div className="input-group mb-3">
                                     <span className="input-group-text">Teşhis</span>
-                                    <input type="text" name="islem" className="form-control" required />
+                                    <input type="text" name="diagnosis" className="form-control" required />
 
                                 </div>
 
