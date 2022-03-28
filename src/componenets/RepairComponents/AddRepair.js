@@ -90,22 +90,22 @@ class AddRepair extends React.Component {
     urunEkle = (e) => {
         e.preventDefault();
         
-        const newProduct = serialize(e.target, { hash: true });
+        const newRepair = serialize(e.target, { hash: true });
 
 
-        newProduct.estimated_price = Number(newProduct.estimated_price);
+        newRepair.estimated_price = Number(newRepair.estimated_price);
 
 
-        //newProduct.Sms = Boolean(newProduct.Sms);
+        //newRepair.Sms = Boolean(newRepair.Sms);
 
-        console.log(newProduct);
+        console.log(newRepair);
 
-        this.urunEklePost(newProduct);
+        this.urunEklePost(newRepair);
 
     }
 
-    urunEklePost = async (product) => {
-        const response = await axios.post(`http://localhost:3001/api/repairs`, product);
+    urunEklePost = async (repair) => {
+        const response = await axios.post(`http://localhost:3001/api/repairs`, repair);
         console.log(response.data.success)
         if (response.data.success) {
             alert("Başarılı")
