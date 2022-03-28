@@ -8,7 +8,7 @@ class ManageRepair extends React.Component {
 
   state =
     {
-      product: [],
+      repairs: [],
 
       categories: [
         {
@@ -19,21 +19,21 @@ class ManageRepair extends React.Component {
         {
           "id": 1,
           "name": "Teslim Edilen",
-          "slug": "Teslim Edilen"
+          "slug": "teslim edilen"
 
         },
         {
           "id": 2,
           "name": "İADE",
-          "slug": "İADE"
+          "slug": "iade"
 
         },
         {
-          "id":3,
-          "name":"HAZIR",
-          "slug":"HAZIR"
+          "id": 3,
+          "name": "HAZIR",
+          "slug": "hazır"
         }
-     
+
       ],
 
       searchQuery: "",
@@ -45,10 +45,10 @@ class ManageRepair extends React.Component {
   async componentDidMount() {
     const response = await axios.get("http://localhost:3001/api/repairs?limit=1000");
     console.log(response.data.data)
-    //this.setState({ products: response.data.data })
+    this.setState({ repairs: response.data.data })
   }
 
-  searchProduct = (event) => {
+  searchRepair = (event) => {
     this.setState({ searchQuery: event.target.value })
     this.setState({ category: "" })
   }
@@ -63,10 +63,10 @@ class ManageRepair extends React.Component {
 
   render() {
 
-    let filteredProduct = this.state.product.filter(
-      (product) => {
-        console.log("Toplam Ürün Sayısı : " + this.state.products.length);
-        return ((product.slug.indexOf(this.state.searchQuery) !== -1) || (product.barcode.indexOf(this.state.searchQuery) !== -1)) && (product.category.indexOf(this.state.category) !== -1)
+    let filteredRepair = this.state.repairs.filter(
+      (repair) => {
+        console.log("Toplam Ürün Sayısı : " + this.state.repairs.length);
+        return ((repair.brand.indexOf(this.state.searchQuery) !== -1) || (repair.tel.indexOf(this.state.searchQuery) !== -1)) && (repair.name.indexOf(this.state.category) !== -1)
       }
     )
 
@@ -75,7 +75,7 @@ class ManageRepair extends React.Component {
       <>
 
         <Nav
-          searchProductProp={this.searchProduct}
+          searchProductProp={this.searchRepair}
           //Search alanına barcode yazılıp enter yapıldığında _handleKeyDownProp() fonksiyona gönderiyor.
           _handleKeyDownProp={this._handleKeyDownProp}
           searchQuery={this.state.searchQuery}
@@ -84,7 +84,7 @@ class ManageRepair extends React.Component {
 
         <a href='tamir/yeni'>
 
-          <button type='button' className='btn btn-primary float-right mr-5'><i className='fa fa-plus'></i> YENİ ÜRÜN</button>
+          <button type='button' className='btn btn-primary float-right mr-5'><i className='fa fa-plus'></i> YENİ TAMİR</button>
         </a>
         <div className='container-fluid'>
           <div className='row'>
@@ -119,41 +119,40 @@ class ManageRepair extends React.Component {
                     <th scope="col">Model</th>
                     <th scope="col">Renk</th>
                     <th scope="col">Teşhis</th>
-                    <th scope="col">Sms</th>
                   </tr>
                 </thead>
                 <tbody>
 
 
 
-                  {filteredProduct.map((product) => (
+                  {filteredRepair.map((repair) => (
 
 
 
 
-                    <tr key={product._Id}>
-                      <td> {product.Name}</td>
-                      <th>{product.Tel}</th>
-                      <td>{product.Problem}</td>
-                      <td>{product.Status}</td>
-                      <td>{product.Notes}</td>
-                      <td>{product.Estimated_price}</td>
-                      <td>{product.Brand}</td>
-                      <td>{product.Device_model}</td>
-                      <td>{product.Color}</td>
-                      <td>{product.Diagnosis}</td>
+                    <tr key={repair._Id}>
+                      <td> {repair.name}</td>
+                      <th>{repair.tel}</th>
+                      <td>{repair.troblem}</td>
+                      <td>{repair.status}</td>
+                      <td>{repair.notes}</td>
+                      <td>{repair.estimated_price}</td>
+                      <td>{repair.brand}</td>
+                      <td>{repair.device_model}</td>
+                      <td>{repair.color}</td>
+                      <td>{repair.diagnosis}</td>
                       {/* <td>{product.Sms}</td> */}
 
 
 
 
-                      
+
                       <td><b style={{ fontSize: 15, color: 'gray' }}>
                         {(() => {
-                          let date = new Date(product.product_created_date);
+                          let date = new Date(repair.repair_created_date);
                           let options1 = {
-                            hour:"2-digit",
-                            minute:"2-digit",
+                            hour: "2-digit",
+                            minute: "2-digit",
                             year: "numeric",
                             month: "numeric",
                             day: "numeric",
