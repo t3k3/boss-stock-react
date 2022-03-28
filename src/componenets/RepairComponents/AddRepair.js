@@ -92,27 +92,27 @@ class AddRepair extends React.Component {
         
         const newProduct = serialize(e.target, { hash: true });
         newProduct.ID = String(newProduct.ID);
-        newProduct.Name = String(newProduct.Name);
+        newProduct.name = String(newProduct.Name);
 
-        newProduct.Tel = String(newProduct.Tel);
+        newProduct.tel = String(newProduct.Tel);
 
-        newProduct.Problem = String(newProduct.Problem);
+        newProduct.problem = String(newProduct.Problem);
 
-        newProduct.Status = String(newProduct.Status);
+        newProduct.status = String(newProduct.Status);
 
-        newProduct.Notes = String(newProduct.Notes);
+        newProduct.notes = String(newProduct.Notes);
 
-        newProduct.Estimeted_price = Float64Array(newProduct.Estimeted_price);
+        newProduct.estimeted_price = Number(newProduct.Estimeted_price);
 
-        newProduct.Brand = String(newProduct.Brand);
+        newProduct.brand = String(newProduct.Brand);
 
-        newProduct.Device_model = String(newProduct.Device_model);
+        newProduct.device_model = String(newProduct.Device_model);
 
-        newProduct.Color = String(newProduct.Color);
+        newProduct.color = String(newProduct.Color);
 
-        newProduct.Diagnosis = String(newProduct.Diagnosis);
+        newProduct.diagnosis = String(newProduct.Diagnosis);
 
-        newProduct.Sms = Boolean(newProduct.Sms);
+        //newProduct.Sms = Boolean(newProduct.Sms);
         
 
 
@@ -129,7 +129,7 @@ class AddRepair extends React.Component {
     }
 
     urunEklePost = async (product) => {
-        const response = await axios.post(`http://localhost:3001/api/repair`, product);
+        const response = await axios.post(`http://localhost:3001/api/repairs`, product);
         console.log(response.data.success)
         if (response.data.success) {
             alert("Başarılı")
@@ -226,7 +226,7 @@ class AddRepair extends React.Component {
 
                                 <div className="input-group mb-3">
                                     <span className="input-group-text">Renk</span>
-                                    <input type="DateTime" name="color" className="form-control" required />
+                                    <input type="text" name="color" className="form-control" required />
 
                                 </div>
 
@@ -236,11 +236,11 @@ class AddRepair extends React.Component {
 
                                 </div>
 
-                                <div className="input-group mb-3">
+                                {/* <div className="input-group mb-3">
                                     <span className="input-group-text">Sms</span>
                                     <input type="bool" name="sms" className="form-control" required />
 
-                                </div>
+                                </div> */}
 
                              
 

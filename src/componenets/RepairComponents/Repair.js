@@ -43,9 +43,9 @@ class ManageRepair extends React.Component {
     }
 
   async componentDidMount() {
-    const response = await axios.get("http://localhost:3001/api/repair?limit=1000");
-    //console.log(response.data.data)
-    this.setState({ products: response.data.data })
+    const response = await axios.get("http://localhost:3001/api/repairs?limit=1000");
+    console.log(response.data.data)
+    //this.setState({ products: response.data.data })
   }
 
   searchProduct = (event) => {
@@ -142,7 +142,7 @@ class ManageRepair extends React.Component {
                       <td>{product.Device_model}</td>
                       <td>{product.Color}</td>
                       <td>{product.Diagnosis}</td>
-                      <td>{product.Sms}</td>
+                      {/* <td>{product.Sms}</td> */}
 
 
 
