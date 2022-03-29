@@ -95,6 +95,8 @@ class AddRepair extends React.Component {
 
         newRepair.estimated_price = Number(newRepair.estimated_price);
 
+        newRepair.status = "bekliyor";
+
 
         //newRepair.Sms = Boolean(newRepair.Sms);
 

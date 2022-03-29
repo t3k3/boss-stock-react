@@ -19,19 +19,19 @@ class ManageRepair extends React.Component {
         {
           "id": 1,
           "name": "Teslim Edilen",
-          "slug": "teslim edilen"
+          "slug": "undefined"
 
         },
         {
           "id": 2,
           "name": "İADE",
-          "slug": "iade"
+          "slug": "1"
 
         },
         {
           "id": 3,
           "name": "HAZIR",
-          "slug": "hazır"
+          "slug": "bekliyor"
         }
 
       ],
@@ -128,9 +128,7 @@ class ManageRepair extends React.Component {
                   {filteredRepair.map((repair) => (
 
 
-
-
-                    <tr key={repair._Id}>
+                    <tr className={repair.status === "bekliyor" ? "p-3 mb-2 bg-warning text-dark" : (repair.status === "undefined" ? "p-3 mb-2 bg-success text-white" : "p-3 mb-2 bg-danger text-dark")} key={repair._Id}>
                       <td> {repair.name}</td>
                       <th>{repair.tel}</th>
                       <td>{repair.troblem}</td>
