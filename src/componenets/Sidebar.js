@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import '@fortawesome/free-regular-svg-icons';
+import '@fortawesome/fontawesome-svg-core';
 
 
 
@@ -21,28 +22,65 @@ const Sidebar = () => {
                         <hr />
                         <ul className="nav nav-pills flex-column mb-auto">
                             <li key={1} className="nav-item" >
+                            <i class="fa-regular fa-house"></i>
                                 <a href="/" className="nav-link">
-                                    ANA SAYFA
+                                    Ana Sayfa
                                 </a>
                             </li>
                             <li key={2} className="nav-item" >
+                            <i class="fa-thin fa-arrow-pointer"></i>
                                 <a href="/urunler" className="nav-link" >
-                                    ÜRÜNLER
+                                    Ürünler
                                 </a>
                             </li>
                             <li key={3} className="nav-item" >
                                 <a href="/pos" className="nav-link " >
-                                    SATIŞ NOKTASI
+                                    Satış Noktası
                                 </a>
                             </li>
                             <li key={4} className="nav-item" >
                                 <a href="/satislar" className="nav-link " >
-                                    SATIŞLAR
+                                    Satışlar
                                 </a>
                             </li>
                             <li key={5} className="nav-item" >
                                 <a href="/tamir" className="nav-link " >
-                                    TAMİR
+                                    Tamir
+                                </a>
+                            </li>
+                            <li key={6} className="nav-item" >
+                                <a href="/kasa" className="nav-link " >
+                                    Kasa İşlemleri
+                                </a>
+                            </li>
+                            <li key={7} className="nav-item" >
+                                <a href="/imeil" className="nav-link " >
+                                    İmeil Sorgula
+                                </a>
+                            </li>
+                            <li key={8} className="nav-item" >
+                                <a href="/tedarikciler" className="nav-link " >
+                                    Tedarikçiler
+                                </a>
+                            </li>
+                            <li key={9} className="nav-item" >
+                                <a href="/personel" className="nav-link " >
+                                    Personel
+                                </a>
+                            </li>
+                            <li key={10} className="nav-item" >
+                                <a href="/loglar" className="nav-link " >
+                                    İşlem Logları
+                                </a>
+                            </li>
+                            <li key={11} className="nav-item" >
+                                <a href="/raporlar" className="nav-link " >
+                                    Raporlar
+                                </a>
+                            </li>
+                            <li key={12} className="nav-item" >
+                                <a href="/ayarlar" className="nav-link " >
+                                    Ayarlar
                                 </a>
                             </li>
 
@@ -50,14 +88,13 @@ const Sidebar = () => {
                         <hr />
                         <div className="dropdown">
                             <a href="# " className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="# " alt="" width="32" height="32" className="rounded-circle me-2" />
-                                <strong>boss</strong>
+                                Ürünler
                             </a>
                             <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                                <li><a className="dropdown-item" href="# ">Ayarlar</a></li>
-                                <li><a className="dropdown-item" href="# ">Profil</a></li>
+                                <li><a className="dropdown-item" href="# ">Yeni Ürün</a></li>
+                                <li><a className="dropdown-item" href="# ">Ürün Listesi</a></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item" href="# ">Çıkış Yap</a></li>
+                                <li><a className="dropdown-item" href="# ">Stok Sayısı</a></li>
                             </ul>
                         </div>
                     </div>

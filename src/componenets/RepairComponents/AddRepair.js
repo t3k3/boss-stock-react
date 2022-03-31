@@ -148,14 +148,9 @@ class AddRepair extends React.Component {
                             <form onSubmit={this.urunEkle}>
 
                                 <div className="input-group mb-3">
-                                    <span className="input-group-text">Arıza Kaydı</span>
+                                    <span className="input-group-text">Ad Soyad</span>
                                     <input type="text" name="name" className="form-control" required />
 
-                                </div>
-
-                                <div className="input-group mb-3">
-                                    <span className="input-group-text">Ad Soyad </span>
-                                    <textarea className="form-control" aria-label="With textarea"></textarea>
                                 </div>
 
                                 <div className="input-group mb-3">
@@ -198,7 +193,7 @@ class AddRepair extends React.Component {
 
                                 <div className="input-group mb-3">
                                     <span className="input-group-text">Model</span>
-                                    <input type="text" name="model" className="form-control" required />
+                                    <input type="text" name="device_model" className="form-control" required />
 
                                 </div>
 
