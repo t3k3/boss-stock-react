@@ -1,7 +1,7 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/free-regular-svg-icons';
-import '@fortawesome/fontawesome-svg-core';
+//import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 
 
@@ -22,19 +22,22 @@ const Sidebar = () => {
                         <hr />
                         <ul className="nav nav-pills flex-column mb-auto">
                             <li key={1} className="nav-item" >
-                            <i class="fa-regular fa-house"></i>
                                 <a href="/" className="nav-link">
+                                <i className="fa fa-home"></i>
                                     Ana Sayfa
                                 </a>
                             </li>
                             <li key={2} className="nav-item" >
-                            <i class="fa-thin fa-arrow-pointer"></i>
+                            
                                 <a href="/urunler" className="nav-link" >
+                                <i className="fa-thin fa-arrow-up"></i>
                                     Ürünler
                                 </a>
                             </li>
                             <li key={3} className="nav-item" >
+
                                 <a href="/pos" className="nav-link " >
+                                <i className="fas fa-address-book"></i>
                                     Satış Noktası
                                 </a>
                             </li>
