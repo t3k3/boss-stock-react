@@ -43,16 +43,20 @@ const Sidebar = () => {
                             </li>
                             <li key={4} className="nav-item" >
                                 <a href="/satislar" className="nav-link " >
+                                <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+
                                     Satışlar
                                 </a>
                             </li>
                             <li key={5} className="nav-item" >
                                 <a href="/tamir" className="nav-link " >
+                                <i className="fa fa-cog" aria-hidden="true"></i>
                                     Tamir
                                 </a>
                             </li>
                             <li key={6} className="nav-item" >
                                 <a href="/kasa" className="nav-link " >
+                                <i className="fa fa-money" aria-hidden="true"></i>
                                     Kasa İşlemleri
                                 </a>
                             </li>
